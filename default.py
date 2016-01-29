@@ -60,10 +60,10 @@ if os.path.exists(favorites)==True:
     FAV = open(favorites).read()
 else: FAV = []
 
-SOURCES = [{"title": "Stallion-IPTV ", "url": "http://pastebin.com/raw.php?i=bCtX50xV", "fanart": "http://horsesstock.com/wp-content/uploads/2015/01/photos_of_wild_horses00011.jpg", "genre": "Tv Live", "date": "10.17.2015", "credits": "Stallion-IPTV", "thumbnail": "https://googledrive.com/host/0BzqtJBUy3FRTc1Vrem5fbmNKVlk/icon.png"}]
+SOURCES = [{"title": "Stouchtone ", "url": "http://pastebin.com/raw/c1YqQytk", "fanart": "http://2.bp.blogspot.com/-WXtfUJi3AMw/U0RLC0dBpbI/AAAAAAAANcM/eAQulKgz3MQ/s1600/mntv_logsp02-3DCD-02_0004b.jpg", "GENERO": "IPTV ", "date": "01/21/2016", "credits": "SOLOMAN", "thumbnail": "http://s3.amazonaws.com/fotor.cdn/share.url/326f974a881c483d8d370a775338fec3.jpeg"}]
 
-# https://googledrive.com/host/0BzqtJBUy3FRTc1Vrem5fbmNKVlk/fanart.jpg
-# https://googledrive.com/host/0BzqtJBUy3FRTc1Vrem5fbmNKVlk/icon.png
+# http://2.bp.blogspot.com/-WXtfUJi3AMw/U0RLC0dBpbI/AAAAAAAANcM/eAQulKgz3MQ/s1600/mntv_logsp02-3DCD-02_0004b.jpg
+# http://s3.amazonaws.com/fotor.cdn/share.url/326f974a881c483d8d370a775338fec3.jpeg
 
 """
 if os.path.exists(source_file)==True:
@@ -73,7 +73,7 @@ else: SOURCES = []
 
 def addon_log(string):
     if debug == 'true':
-        xbmc.log("[addon.Stallion-IPTV-%s]: %s" %(addon_version, string))
+        xbmc.log("[addon.Stouchtone-%s]: %s" %(addon_version, string))
 
 
 def makeRequest(url, headers=None):
@@ -89,11 +89,11 @@ def makeRequest(url, headers=None):
             addon_log('URL: '+url)
             if hasattr(e, 'code'):
                 addon_log('We failed with error code - %s.' % e.code)
-                xbmc.executebuiltin("XBMC.Notification(Stallion-IPTV,We failed with error code - "+str(e.code)+",10000,"+icon+")")
+                xbmc.executebuiltin("XBMC.Notification(Stouchtone,We failed with error code - "+str(e.code)+",10000,"+icon+")")
             elif hasattr(e, 'reason'):
                 addon_log('We failed to reach a server.')
                 addon_log('Reason: %s' %e.reason)
-                xbmc.executebuiltin("XBMC.Notification(Stallion-IPTV,We failed to reach a server. - "+str(e.reason)+",10000,"+icon+")")
+                xbmc.executebuiltin("XBMC.Notification(Stouchtone,We failed to reach a server. - "+str(e.reason)+",10000,"+icon+")")
 
 
 def getSources():
@@ -102,7 +102,7 @@ def getSources():
             if FAV == "[]":
                 os.remove(favorites)
             else:
-                addDir('[COLOR cyan][B]- FAVORITES CHANNEL Stallion-IPTV [/COLOR][/B][/B]','url',4,os.path.join(home, 'resources', 'favorite.png'),FANART,'','','','')
+                addDir('[COLOR cyan][B]- FAVORITES CHANNEL Stouchtone [/COLOR][/B][/B]','url',4,os.path.join(home, 'resources', 'favorite.png'),FANART,'','','','')
                 addDir('','',100,'',FANART,'','','','')
 
         sources = SOURCES
@@ -1864,7 +1864,7 @@ def urlsolver(url):
         else:
             resolver = resolved
     else:
-        xbmc.executebuiltin("XBMC.Notification(Stallion-IPTV,Urlresolver donot support this domain. - ,5000)")
+        xbmc.executebuiltin("XBMC.Notification(Stouchtone,Urlresolver donot support this domain. - ,5000)")
     return resolver
 def play_playlist(name, mu_playlist,queueVideo=None):
         playlist = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
@@ -1927,12 +1927,12 @@ def play_playlist(name, mu_playlist,queueVideo=None):
 
 def download_file(name, url):
         if addon.getSetting('save_location') == "":
-            xbmc.executebuiltin("XBMC.Notification('Stallion-IPTV','Choose a location to save files.',15000,"+icon+")")
+            xbmc.executebuiltin("XBMC.Notification('Stouchtone','Choose a location to save files.',15000,"+icon+")")
             addon.openSettings()
         params = {'url': url, 'download_path': addon.getSetting('save_location')}
         downloader.download(name, params)
         dialog = xbmcgui.Dialog()
-        ret = dialog.yesno('Stallion-IPTV', 'Do you want to add this file as a source?')
+        ret = dialog.yesno('Stouchtone', 'Do you want to add this file as a source?')
         if ret:
             addSource(os.path.join(addon.getSetting('save_location'), name))
 
@@ -1984,7 +1984,7 @@ def addDir(name,url,mode,iconimage,fanart,description,genre,date,credits,showcon
                 contextMenu.append(('Download','XBMC.RunPlugin(%s?url=%s&mode=9&name=%s)'
                                     %(sys.argv[0], urllib.quote_plus(url), urllib.quote_plus(name))))
             elif showcontext == 'fav':
-                contextMenu.append(('Remove from Stallion-IPTV Favorites','XBMC.RunPlugin(%s?mode=6&name=%s)'
+                contextMenu.append(('Remove from Stouchtone Favorites','XBMC.RunPlugin(%s?mode=6&name=%s)'
                                     %(sys.argv[0], urllib.quote_plus(name))))
             if showcontext == '!!update':
                 fav_params2 = (
@@ -1993,7 +1993,7 @@ def addDir(name,url,mode,iconimage,fanart,description,genre,date,credits,showcon
                     )
                 contextMenu.append(('[COLOR yellow]!!update[/COLOR]','XBMC.RunPlugin(%s)' %fav_params2))
             if not name in FAV:
-                contextMenu.append(('Add to Stallion-IPTV Favorites','XBMC.RunPlugin(%s?mode=5&name=%s&url=%s&iconimage=%s&fanart=%s&fav_mode=%s)'
+                contextMenu.append(('Add to Stouchtone Favorites','XBMC.RunPlugin(%s?mode=5&name=%s&url=%s&iconimage=%s&fanart=%s&fav_mode=%s)'
                          %(sys.argv[0], urllib.quote_plus(name), urllib.quote_plus(url), urllib.quote_plus(iconimage), urllib.quote_plus(fanart), mode)))
             liz.addContextMenuItems(contextMenu)
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
@@ -2157,7 +2157,7 @@ def addLink(url,name,iconimage,fanart,description,genre,date,showcontext,playlis
             contextMenu = []
             if showcontext == 'fav':
                 contextMenu.append(
-                    ('Remove from Stallion-IPTV Favorites','XBMC.RunPlugin(%s?mode=6&name=%s)'
+                    ('Remove from Stouchtone Favorites','XBMC.RunPlugin(%s?mode=6&name=%s)'
                      %(sys.argv[0], urllib.quote_plus(name)))
                      )
             elif not name in FAV:
@@ -2169,7 +2169,7 @@ def addLink(url,name,iconimage,fanart,description,genre,date,showcontext,playlis
                     fav_params += 'playlist='+urllib.quote_plus(str(playlist).replace(',','||'))
                 if regexs:
                     fav_params += "&regexs="+regexs
-                contextMenu.append(('Add to Stallion-IPTV Favorites','XBMC.RunPlugin(%s)' %fav_params))
+                contextMenu.append(('Add to Stouchtone Favorites','XBMC.RunPlugin(%s)' %fav_params))
             liz.addContextMenuItems(contextMenu)
         if not playlist is None:
             if addon.getSetting('add_playlist') == "false":
@@ -2400,13 +2400,13 @@ elif mode==17:
         else:
             playsetresolved(url,name,iconimage,setresolved)
     else:
-        xbmc.executebuiltin("XBMC.Notification(Stallion-IPTV,Failed to extract regex. - "+"this"+",4000,"+icon+")")
+        xbmc.executebuiltin("XBMC.Notification(Stouchtone,Failed to extract regex. - "+"this"+",4000,"+icon+")")
 elif mode==18:
     addon_log("youtubedl")
     try:
         import youtubedl
     except Exception:
-        xbmc.executebuiltin("XBMC.Notification(Stallion-IPTV,Please [COLOR yellow]install Youtube-dl[/COLOR] module ,10000,"")")
+        xbmc.executebuiltin("XBMC.Notification(Stouchtone,Please [COLOR yellow]install Youtube-dl[/COLOR] module ,10000,"")")
     stream_url=youtubedl.single_YD(url)
     playsetresolved(stream_url,name,iconimage)
 elif mode==19:
