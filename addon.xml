@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.Stouchtone" name="Stouchtone" version="2.2" provider-name="touchtone Media">
+<addon id="plugin.video.Stouchtone" name="[COLOR blue][B]Touchtone-TV[/B][/COLOR]" version="2.2" provider-name="touchtone Media">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup" version="3.2.1"/>
