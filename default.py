@@ -60,10 +60,10 @@ if os.path.exists(favorites)==True:
     FAV = open(favorites).read()
 else: FAV = []
 
-SOURCES = [{"title": "Stouchtone ", "url": "http://pastebin.com/raw/c1YqQytk", "fanart": "http://2.bp.blogspot.com/-WXtfUJi3AMw/U0RLC0dBpbI/AAAAAAAANcM/eAQulKgz3MQ/s1600/mntv_logsp02-3DCD-02_0004b.jpg", "GENERO": "IPTV ", "date": "01/21/2016", "credits": "SOLOMAN", "thumbnail": "http://s3.amazonaws.com/fotor.cdn/share.url/326f974a881c483d8d370a775338fec3.jpeg"}]
+SOURCES = [{"title": "Stouchtone ", "url": "http://pastebin.com/raw/c1YqQytk", "fanart": "http://2.bp.blogspot.com/-WXtfUJi3AMw/U0RLC0dBpbI/AAAAAAAANcM/eAQulKgz3MQ/s1600/mntv_logsp02-3DCD-02_0004b.jpg", "GENERO": "IPTV ", "date": "01/21/2016", "credits": "SOLOMAN", "thumbnail": "http://s3.amazonaws.com/fotor.cdn/share.url/7ccb0eb8fa714046b0d98071c11dc5cb.jpeg"}]
 
 # http://2.bp.blogspot.com/-WXtfUJi3AMw/U0RLC0dBpbI/AAAAAAAANcM/eAQulKgz3MQ/s1600/mntv_logsp02-3DCD-02_0004b.jpg
-# http://s3.amazonaws.com/fotor.cdn/share.url/326f974a881c483d8d370a775338fec3.jpeg
+# http://s3.amazonaws.com/fotor.cdn/share.url/7ccb0eb8fa714046b0d98071c11dc5cb.jpeg
 
 """
 if os.path.exists(source_file)==True:
